@@ -13,7 +13,7 @@ public class Orden {
     private Long id;
 
     @Column(nullable = false, length = 300)
-    private String descripcion;
+    private String description;
 
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdenProducto> ordenProductos;
@@ -29,12 +29,12 @@ public class Orden {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<OrdenProducto> getOrdenProductos() {

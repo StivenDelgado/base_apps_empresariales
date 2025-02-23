@@ -18,7 +18,7 @@ public class OrdenProducto {
     private Producto producto;
 
     @Column(nullable = false)
-    private int cantidad;
+    private int amount;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class OrdenProducto {
         this.producto = producto;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

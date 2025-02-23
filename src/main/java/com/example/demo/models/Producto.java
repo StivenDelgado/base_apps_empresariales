@@ -13,13 +13,13 @@ public class Producto {
     private Long id;
 
     @Column(nullable = false, length = 150)
-    private String nombre;
+    private String name;
 
     @Column(nullable = false, length = 300)
-    private String descripcion;
+    private String description;
 
     @Column(nullable = false)
-    private Double precio;
+    private Double price;
 
     @Column(nullable = false)
     private int stock;
@@ -27,6 +27,37 @@ public class Producto {
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdenProducto> ordenProductos;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public int getStock() {
         return stock;
@@ -36,43 +67,11 @@ public class Producto {
         this.stock = stock;
     }
 
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
     public List<OrdenProducto> getOrdenProductos() {
         return ordenProductos;
     }
 
     public void setOrdenProductos(List<OrdenProducto> ordenProductos) {
         this.ordenProductos = ordenProductos;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }
