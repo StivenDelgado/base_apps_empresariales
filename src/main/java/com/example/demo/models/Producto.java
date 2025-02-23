@@ -2,6 +2,8 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "productos")
 public class Producto {
@@ -22,9 +24,8 @@ public class Producto {
     @Column(nullable = false)
     private int stock;
 
-    @ManyToOne
-    @JoinColumn( name = "id_orden", nullable = false)
-    private Orden orden;
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdenProducto> ordenProductos;
 
 
     public int getStock() {
@@ -45,6 +46,14 @@ public class Producto {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public List<OrdenProducto> getOrdenProductos() {
+        return ordenProductos;
+    }
+
+    public void setOrdenProductos(List<OrdenProducto> ordenProductos) {
+        this.ordenProductos = ordenProductos;
     }
 
     public void setDescripcion(String descripcion) {

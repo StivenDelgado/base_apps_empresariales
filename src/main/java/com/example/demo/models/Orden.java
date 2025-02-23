@@ -16,7 +16,7 @@ public class Orden {
     private String descripcion;
 
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> productos;
+    private List<OrdenProducto> ordenProductos;
 
     @Column(nullable = false)
     private int totalPrice;
@@ -37,12 +37,12 @@ public class Orden {
         this.descripcion = descripcion;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public List<OrdenProducto> getOrdenProductos() {
+        return ordenProductos;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setOrdenProductos(List<OrdenProducto> ordenProductos) {
+        this.ordenProductos = ordenProductos;
     }
 
     public int getTotalPrice() {
